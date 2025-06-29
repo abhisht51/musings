@@ -11,17 +11,17 @@ const recentPosts = allBlogPosts
   .slice(0, 3);
 ---
 
-<BaseLayout title="Musings - Personal Blog">
+<BaseLayout title="Abhisht's Musings">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->
     <div class="text-center mb-16">
-      <h1 class="text-4xl sm:text-5xl font-bold font-mono mb-6">
+      <h1 class="text-5xl sm:text-6xl font-semibold mb-6">
         <span class="text-blue-600 dark:text-blue-400">$</span> 
-        <span class="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+        <span class="text-stone-800 dark:text-white animate-fade-in-up italic">
           Welcome to my musings
         </span>
       </h1>
-      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+      <p class="text-xl text-stone-600 dark:text-gray-200 max-w-2xl mx-auto leading-relaxed font-semibold">
         A place where I share my thoughts on coding, technology, and the endless journey of learning.
         Expect deep dives into software engineering, random observations, and the occasional rant.
       </p>
@@ -31,12 +31,12 @@ const recentPosts = allBlogPosts
     {recentPosts.length > 0 && (
       <section class="mb-12">
         <div class="flex items-center justify-between mb-8">
-          <h2 class="text-2xl font-bold font-mono text-gray-900 dark:text-gray-100">
+          <h2 class="text-3xl font-semibold text-stone-800 dark:text-white">
             <span class="text-green-600 dark:text-green-400">//</span> Recent Posts
           </h2>
           <a 
             href="/blog" 
-            class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-mono text-sm transition-colors"
+            class="text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 font-mono text-sm transition-colors"
           >
             view all →
           </a>
@@ -44,22 +44,22 @@ const recentPosts = allBlogPosts
         
         <div class="grid gap-6">
           {recentPosts.map((post) => (
-            <article class="group bg-gray-50 dark:bg-gray-800 rounded-lg p-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 border border-gray-200 dark:border-gray-700">
+            <article class="group bg-stone-100 dark:bg-gray-800 rounded-lg p-6 hover:bg-stone-200 dark:hover:bg-gray-700 transition-all duration-300 border border-stone-200 dark:border-gray-700 hover:shadow-md hover:-translate-y-1">
               <div class="flex items-start justify-between">
                 <div class="flex-1">
-                  <h3 class="text-xl font-semibold mb-2">
+                  <h3 class="text-2xl font-semibold mb-2">
                     <a 
                       href={`/blog/${post.slug}`}
-                      class="text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                      class="text-stone-800 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors"
                     >
                       {post.data.title}
                     </a>
                   </h3>
-                  <p class="text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+                  <p class="text-lg text-stone-600 dark:text-gray-200 mb-3 line-clamp-2 italic">
                     {post.data.description}
                   </p>
-                  <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                    <time class="font-mono">
+                  <div class="flex items-center text-sm text-stone-500 dark:text-gray-300">
+                    <time class="font-mono text-base">
                       {post.data.publishDate.toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
@@ -69,7 +69,7 @@ const recentPosts = allBlogPosts
                     {post.data.tags.length > 0 && (
                       <div class="ml-4 flex gap-2">
                         {post.data.tags.slice(0, 3).map((tag) => (
-                          <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs font-mono">
+                          <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-sm font-mono">
                             {tag}
                           </span>
                         ))}
@@ -85,12 +85,12 @@ const recentPosts = allBlogPosts
     )}
 
     <!-- CTA Section -->
-    <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-8 text-center border border-blue-200 dark:border-blue-800">
-      <h2 class="text-2xl font-bold font-mono mb-4 text-gray-900 dark:text-gray-100">
+    <div class="bg-stone-100 dark:bg-gray-800 rounded-lg p-8 text-center border border-stone-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+      <h2 class="text-3xl font-semibold mb-4 text-stone-800 dark:text-white">
         <span class="text-purple-600 dark:text-purple-400">console.log</span>
-        <span class="text-gray-600 dark:text-gray-300">("Stay updated!");</span>
+        <span class="text-stone-600 dark:text-gray-200">("Stay updated!");</span>
       </h2>
-      <p class="text-gray-600 dark:text-gray-300 mb-6">
+      <p class="text-lg text-stone-600 dark:text-gray-200 mb-6 italic">
         New posts are added regularly. Check back often or bookmark this page!
       </p>
       <a 
@@ -109,5 +109,20 @@ const recentPosts = allBlogPosts
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>

@@ -28,7 +28,7 @@ const { Content } = await post?.render() || { Content: () => null };
     <div class="mb-8">
       <a 
         href="/blog" 
-        class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-mono text-sm transition-colors"
+        class="inline-flex items-center text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 font-mono text-base transition-colors"
       >
         ← Back to all posts
       </a>
@@ -47,15 +47,15 @@ const { Content } = await post?.render() || { Content: () => null };
       )}
       
       <div class="text-center">
-        <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100 leading-tight">
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-stone-800 dark:text-white leading-tight">
           {post.data.title}
         </h1>
         
-        <p class="text-xl text-gray-600 dark:text-gray-300 mb-6 max-w-3xl mx-auto">
+        <p class="text-2xl text-stone-600 dark:text-gray-200 mb-6 max-w-3xl mx-auto leading-relaxed">
           {post.data.description}
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-base text-stone-500 dark:text-gray-300">
           <div class="flex items-center">
             <span class="font-mono">Published:</span>
             <time class="ml-2 font-mono">
@@ -84,7 +84,7 @@ const { Content } = await post?.render() || { Content: () => null };
         {post.data.tags.length > 0 && (
           <div class="flex flex-wrap justify-center gap-2 mt-6">
             {post.data.tags.map((tag) => (
-              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-mono">
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 rounded-full text-base font-mono">
                 {tag}
               </span>
             ))}
@@ -94,15 +94,15 @@ const { Content } = await post?.render() || { Content: () => null };
     </header>
 
     <!-- Article Content -->
-    <div class="prose prose-lg dark:prose-invert max-w-none">
+    <div class="prose prose-xl max-w-none">
       <Content />
     </div>
 
     <!-- Article Footer -->
-    <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <footer class="mt-12 pt-8 border-t border-stone-200 dark:border-gray-700">
       <div class="flex flex-col sm:flex-row items-center justify-between">
         <div class="mb-4 sm:mb-0">
-          <p class="text-gray-600 dark:text-gray-300 font-mono text-sm">
+          <p class="text-stone-600 dark:text-gray-200 font-mono text-base">
             Thanks for reading! 🚀
           </p>
         </div>
@@ -110,13 +110,13 @@ const { Content } = await post?.render() || { Content: () => null };
         <div class="flex items-center space-x-4">
           <a 
             href="/blog" 
-            class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-mono text-sm"
+            class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-mono text-base"
           >
             More Posts
           </a>
           <a 
             href="/" 
-            class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-mono text-sm"
+            class="px-4 py-2 border border-stone-300 dark:border-gray-600 text-stone-700 dark:text-white hover:bg-stone-50 dark:hover:bg-gray-700 rounded-lg transition-colors font-mono text-base"
           >
             Home
           </a>
@@ -126,69 +126,160 @@ const { Content } = await post?.render() || { Content: () => null };
   </article>
 </BaseLayout>
 
-<style>
-  /* Custom prose styles for code-centric content */
+<style is:global>
+  /* Base typography */
   .prose {
-    --tw-prose-body: theme(colors.gray.700);
-    --tw-prose-headings: theme(colors.gray.900);
-    --tw-prose-links: theme(colors.blue.600);
-    --tw-prose-bold: theme(colors.gray.900);
-    --tw-prose-counters: theme(colors.gray.500);
-    --tw-prose-bullets: theme(colors.gray.300);
-    --tw-prose-hr: theme(colors.gray.200);
-    --tw-prose-quotes: theme(colors.gray.900);
-    --tw-prose-quote-borders: theme(colors.gray.200);
-    --tw-prose-captions: theme(colors.gray.500);
-    --tw-prose-code: theme(colors.gray.900);
-    --tw-prose-pre-code: theme(colors.gray.200);
-    --tw-prose-pre-bg: theme(colors.gray.800);
-    --tw-prose-th-borders: theme(colors.gray.300);
-    --tw-prose-td-borders: theme(colors.gray.200);
+    font-size: 1.25rem;
+    line-height: 1.8;
+    font-family: 'Crimson Text', Georgia, serif;
   }
 
-  .dark .prose {
-    --tw-prose-body: theme(colors.gray.300);
-    --tw-prose-headings: theme(colors.gray.100);
-    --tw-prose-links: theme(colors.blue.400);
-    --tw-prose-bold: theme(colors.gray.100);
-    --tw-prose-counters: theme(colors.gray.400);
-    --tw-prose-bullets: theme(colors.gray.600);
-    --tw-prose-hr: theme(colors.gray.700);
-    --tw-prose-quotes: theme(colors.gray.100);
-    --tw-prose-quote-borders: theme(colors.gray.700);
-    --tw-prose-captions: theme(colors.gray.400);
-    --tw-prose-code: theme(colors.gray.100);
-    --tw-prose-pre-code: theme(colors.gray.300);
-    --tw-prose-pre-bg: theme(colors.gray.800);
-    --tw-prose-th-borders: theme(colors.gray.600);
-    --tw-prose-td-borders: theme(colors.gray.700);
+  /* Light mode styles */
+  .prose p,
+  .prose li,
+  .prose td,
+  .prose th {
+    color: #44403c; /* stone-700 */
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    color: #292524; /* stone-800 */
+    font-family: 'Crimson Text', Georgia, serif;
+    font-weight: 600;
+  }
+
+  .prose strong,
+  .prose b {
+    color: #292524; /* stone-800 */
+    font-weight: 600;
+  }
+
+  .prose a {
+    color: #1d4ed8; /* blue-700 */
+    text-decoration: underline;
+  }
+
+  .prose a:hover {
+    color: #1e40af; /* blue-800 */
+  }
+
+  .prose blockquote {
+    color: #292524; /* stone-800 */
+    border-left: 4px solid #3b82f6; /* blue-500 */
+    background: #eff6ff; /* blue-50 */
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-style: italic;
   }
 
   .prose code {
+    color: #292524; /* stone-800 */
+    background: #f5f5f4; /* stone-100 */
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
     font-family: 'JetBrains Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
-    font-weight: 500;
-    font-feature-settings: "calt" 1, "liga" 1, "zero" 1;
+    font-size: 0.9em;
   }
 
   .prose pre {
-    font-family: 'JetBrains Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
-    font-feature-settings: "calt" 1, "liga" 1, "zero" 1;
+    background: #374151; /* gray-700 */
+    color: #e5e7eb; /* gray-200 */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
   }
 
+  .prose pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  /* Dark mode styles */
+  html.dark .prose p,
+  html.dark .prose li,
+  html.dark .prose td,
+  html.dark .prose th {
+    color: #e5e5e5;
+  }
+
+  html.dark .prose h1,
+  html.dark .prose h2,
+  html.dark .prose h3,
+  html.dark .prose h4,
+  html.dark .prose h5,
+  html.dark .prose h6 {
+    color: #ffffff;
+  }
+
+  html.dark .prose strong,
+  html.dark .prose b {
+    color: #ffffff;
+  }
+
+  html.dark .prose a {
+    color: #93c5fd; /* blue-300 */
+  }
+
+  html.dark .prose a:hover {
+    color: #dbeafe; /* blue-100 */
+  }
+
+  html.dark .prose blockquote {
+    color: #ffffff;
+    border-left-color: #60a5fa; /* blue-400 */
+    background: rgba(59, 130, 246, 0.1); /* blue-500 with opacity */
+  }
+
+  html.dark .prose code {
+    color: #ffffff;
+    background: #374151; /* gray-700 */
+  }
+
+  html.dark .prose pre {
+    background: #1f2937; /* gray-800 */
+    color: #e5e7eb; /* gray-200 */
+  }
+
+  /* Images and other elements */
   .prose img {
     border-radius: 0.5rem;
     margin: 2rem auto;
   }
 
-  .prose blockquote {
-    border-left: 4px solid theme(colors.blue.500);
-    background: theme(colors.blue.50);
-    padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
+  .prose hr {
+    border-color: #d6d3d1; /* stone-300 */
   }
 
-  .dark .prose blockquote {
-    background: theme(colors.blue.900 / 0.2);
-    border-left-color: theme(colors.blue.400);
+  html.dark .prose hr {
+    border-color: #525252; /* gray-600 */
+  }
+
+  /* Lists */
+  .prose ul,
+  .prose ol {
+    color: inherit;
+  }
+
+  /* Tables */
+  .prose table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .prose th,
+  .prose td {
+    border: 1px solid #d6d3d1; /* stone-300 */
+    padding: 0.5rem;
+  }
+
+  html.dark .prose th,
+  html.dark .prose td {
+    border-color: #525252; /* gray-600 */
   }
 </style>

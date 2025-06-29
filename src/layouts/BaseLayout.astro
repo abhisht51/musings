@@ -16,29 +16,29 @@ const { title, description = "My personal coding musings and thoughts" } = Astro
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="h-full bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+  <body class="h-full bg-stone-50 dark:bg-gray-900 text-stone-800 dark:text-white transition-colors duration-200">
     <div class="min-h-full flex flex-col">
-      <header class="border-b border-gray-200 dark:border-gray-700">
+      <header class="border-b border-stone-200 dark:border-gray-700">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-16">
             <div class="flex items-center">
-              <a href="/" class="text-xl font-bold font-mono text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+              <a href="/" class="text-xl font-bold font-mono text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 transition-colors">
                 ~/musings
               </a>
             </div>
             <nav class="flex items-center space-x-6">
-              <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+              <a href="/" class="text-stone-600 dark:text-gray-300 hover:text-stone-800 dark:hover:text-white transition-colors">
                 Home
               </a>
-              <a href="/blog" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+              <a href="/blog" class="text-stone-600 dark:text-gray-300 hover:text-stone-800 dark:hover:text-white transition-colors">
                 Blog
               </a>
               <button
                 id="theme-toggle"
-                class="p-2 rounded-md bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+                class="p-2 rounded-md bg-stone-100 dark:bg-gray-800 hover:bg-stone-200 dark:hover:bg-gray-700 transition-all duration-200"
                 aria-label="Toggle dark mode"
               >
                 <svg id="sun-icon" class="w-4 h-4 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
@@ -57,11 +57,13 @@ const { title, description = "My personal coding musings and thoughts" } = Astro
         <slot />
       </main>
       
-      <footer class="border-t border-gray-200 dark:border-gray-700 mt-12">
+      <footer class="border-t border-stone-200 dark:border-gray-700 mt-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div class="text-center text-gray-600 dark:text-gray-400">
+          <div class="text-center text-stone-600 dark:text-gray-300">
             <p class="font-mono text-sm">
-              Built with <span class="text-red-500">♥</span> using <a href="https://astro.build" class="text-blue-600 dark:text-blue-400 hover:underline">Astro</a>
+              <span class="text-green-600 dark:text-green-400">$</span> cat .techstack <span class="text-gray-500 dark:text-gray-400">|</span> grep -E "astro|love"
+              <br/>
+              <span class="text-blue-600 dark:text-blue-300">💙</span> <a href="https://astro.build" class="text-blue-600 dark:text-blue-300 hover:underline">astro</a> <span class="text-stone-500 dark:text-gray-400">// static site magic</span>
             </p>
           </div>
         </div>
@@ -107,8 +109,29 @@ const { title, description = "My personal coding musings and thoughts" } = Astro
 
     <style>
       body {
-        font-family: 'Inter', system-ui, sans-serif;
-        font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "cv01" 1, "cv02" 1, "cv03" 1, "cv04" 1;
+        font-family: 'Crimson Text', Georgia, serif;
+        font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.7;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Crimson Text', Georgia, serif;
+        font-weight: 600;
+        color: #44403c; /* stone-700 for light mode */
+      }
+      
+      .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+        color: #ffffff; /* pure white for dark mode */
+      }
+      
+      .font-semibold {
+        font-weight: 600;
+      }
+      
+      .italic {
+        font-style: italic;
       }
       
       .font-mono {
