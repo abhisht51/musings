@@ -1,0 +1,194 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return !data.draft;
+  });
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+type Props = {
+  post: CollectionEntry<'blog'>;
+};
+
+const { post } = Astro.props;
+const { Content } = await post?.render() || { Content: () => null };
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Back Navigation -->
+    <div class="mb-8">
+      <a 
+        href="/blog" 
+        class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-mono text-sm transition-colors"
+      >
+        ← Back to all posts
+      </a>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-12">
+      {post.data.heroImage && (
+        <div class="mb-8 rounded-lg overflow-hidden">
+          <img 
+            src={post.data.heroImage} 
+            alt={post.data.title}
+            class="w-full h-64 sm:h-96 object-cover"
+          />
+        </div>
+      )}
+      
+      <div class="text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100 leading-tight">
+          {post.data.title}
+        </h1>
+        
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-6 max-w-3xl mx-auto">
+          {post.data.description}
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+          <div class="flex items-center">
+            <span class="font-mono">Published:</span>
+            <time class="ml-2 font-mono">
+              {post.data.publishDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </time>
+          </div>
+          
+          {post.data.updatedDate && (
+            <div class="flex items-center">
+              <span class="font-mono">Updated:</span>
+              <time class="ml-2 font-mono">
+                {post.data.updatedDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            </div>
+          )}
+        </div>
+
+        {post.data.tags.length > 0 && (
+          <div class="flex flex-wrap justify-center gap-2 mt-6">
+            {post.data.tags.map((tag) => (
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-mono">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <Content />
+    </div>
+
+    <!-- Article Footer -->
+    <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <div class="flex flex-col sm:flex-row items-center justify-between">
+        <div class="mb-4 sm:mb-0">
+          <p class="text-gray-600 dark:text-gray-300 font-mono text-sm">
+            Thanks for reading! 🚀
+          </p>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <a 
+            href="/blog" 
+            class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-mono text-sm"
+          >
+            More Posts
+          </a>
+          <a 
+            href="/" 
+            class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-mono text-sm"
+          >
+            Home
+          </a>
+        </div>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  /* Custom prose styles for code-centric content */
+  .prose {
+    --tw-prose-body: theme(colors.gray.700);
+    --tw-prose-headings: theme(colors.gray.900);
+    --tw-prose-links: theme(colors.blue.600);
+    --tw-prose-bold: theme(colors.gray.900);
+    --tw-prose-counters: theme(colors.gray.500);
+    --tw-prose-bullets: theme(colors.gray.300);
+    --tw-prose-hr: theme(colors.gray.200);
+    --tw-prose-quotes: theme(colors.gray.900);
+    --tw-prose-quote-borders: theme(colors.gray.200);
+    --tw-prose-captions: theme(colors.gray.500);
+    --tw-prose-code: theme(colors.gray.900);
+    --tw-prose-pre-code: theme(colors.gray.200);
+    --tw-prose-pre-bg: theme(colors.gray.800);
+    --tw-prose-th-borders: theme(colors.gray.300);
+    --tw-prose-td-borders: theme(colors.gray.200);
+  }
+
+  .dark .prose {
+    --tw-prose-body: theme(colors.gray.300);
+    --tw-prose-headings: theme(colors.gray.100);
+    --tw-prose-links: theme(colors.blue.400);
+    --tw-prose-bold: theme(colors.gray.100);
+    --tw-prose-counters: theme(colors.gray.400);
+    --tw-prose-bullets: theme(colors.gray.600);
+    --tw-prose-hr: theme(colors.gray.700);
+    --tw-prose-quotes: theme(colors.gray.100);
+    --tw-prose-quote-borders: theme(colors.gray.700);
+    --tw-prose-captions: theme(colors.gray.400);
+    --tw-prose-code: theme(colors.gray.100);
+    --tw-prose-pre-code: theme(colors.gray.300);
+    --tw-prose-pre-bg: theme(colors.gray.800);
+    --tw-prose-th-borders: theme(colors.gray.600);
+    --tw-prose-td-borders: theme(colors.gray.700);
+  }
+
+  .prose code {
+    font-family: 'JetBrains Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+    font-weight: 500;
+    font-feature-settings: "calt" 1, "liga" 1, "zero" 1;
+  }
+
+  .prose pre {
+    font-family: 'JetBrains Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+    font-feature-settings: "calt" 1, "liga" 1, "zero" 1;
+  }
+
+  .prose img {
+    border-radius: 0.5rem;
+    margin: 2rem auto;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid theme(colors.blue.500);
+    background: theme(colors.blue.50);
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .dark .prose blockquote {
+    background: theme(colors.blue.900 / 0.2);
+    border-left-color: theme(colors.blue.400);
+  }
+</style>
