@@ -77,9 +77,9 @@ const { title, description = "My personal coding musings and thoughts" } = Astro
       const moonIcon = document.getElementById('moon-icon');
       
       // Check for saved theme preference or default to system preference
-      const getTheme = () => {
+      const getTheme = ():string => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
+          return localStorage.getItem('theme') || 'light';
         }
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
           return 'dark';
@@ -87,7 +87,7 @@ const { title, description = "My personal coding musings and thoughts" } = Astro
         return 'light';
       };
 
-      const setTheme = (theme) => {
+      const setTheme = (theme:string) => {
         if (theme === 'light') {
           document.documentElement.classList.remove('dark');
         } else {
