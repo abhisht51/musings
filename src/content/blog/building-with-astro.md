@@ -5,7 +5,7 @@ publishDate: 2025-06-31T00:00:00Z
 updatedDate: 2025-06-31T00:00:00Z
 tags: ["astro", "web-development", "static-sites", "performance"]
 draft: false
-heroImage: "/images/astro-blog-hero.jpg"
+heroImage: "/images/what-is-astro-cover-image.webp"
 author: "Abhisht Singh"
 ---
 
