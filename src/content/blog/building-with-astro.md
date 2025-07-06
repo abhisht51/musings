@@ -6,6 +6,7 @@ updatedDate: 2024-01-22T00:00:00Z
 tags: ["astro", "web-development", "static-sites", "performance"]
 draft: false
 heroImage: "/images/astro-blog-hero.jpg"
+author: "Abhisht Singh"
 ---
 
 # Why I Chose Astro for This Blog

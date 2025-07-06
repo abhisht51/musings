@@ -41,7 +41,7 @@ const { Content } = await post?.render() || { Content: () => null };
           <img 
             src={post.data.heroImage} 
             alt={post.data.title}
-            class="w-full h-64 sm:h-96 object-cover"
+            class="w-full object-contain max-h-96"
           />
         </div>
       )}
@@ -56,6 +56,13 @@ const { Content } = await post?.render() || { Content: () => null };
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-base text-stone-500 dark:text-gray-300">
+          <div class="flex items-center">
+            <span class="font-mono">By:</span>
+            <a href="/author" class="ml-2 font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+              {post.data.author}
+            </a>
+          </div>
+          
           <div class="flex items-center">
             <span class="font-mono">Published:</span>
             <time class="ml-2 font-mono">

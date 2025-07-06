@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="$ whoami - Abhisht Singh"
+  description="Software engineer, AI enthusiast, and creator of this blog"
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Terminal-style Header -->
+    <div class="text-center mb-16">
+      <h1 class="text-5xl sm:text-6xl font-semibold mb-6">
+        <span class="text-blue-600 dark:text-blue-400">$</span> 
+        <span class="text-stone-800 dark:text-white animate-fade-in-up font-mono">
+          whoami
+        </span>
+      </h1>
+      
+      <div class="bg-stone-100 dark:bg-gray-800 rounded-lg p-6 border border-stone-200 dark:border-gray-700 font-mono text-left max-w-2xl mx-auto mb-8">
+        <div class="text-green-600 dark:text-green-400 mb-2">
+          <span class="text-stone-500 dark:text-gray-400">></span> Abhisht Singh
+        </div>
+        <div class="text-stone-600 dark:text-gray-300 text-sm">
+          <span class="text-blue-600 dark:text-blue-400">role:</span> Software Engineer<br>
+          <span class="text-blue-600 dark:text-blue-400">current_focus:</span> AI-assisted development tools<br>
+          <span class="text-blue-600 dark:text-blue-400">languages:</span> JavaScript, Python, TypeScript<br>
+          <span class="text-blue-600 dark:text-blue-400">motto:</span> Building the future, one commit at a time
+        </div>
+      </div>
+
+      <p class="text-xl text-stone-600 dark:text-gray-200 max-w-2xl mx-auto leading-relaxed">
+        Welcome to my corner of the internet. I'm a software engineer passionate about AI, 
+        coding, and sharing knowledge through writing.
+      </p>
+    </div>
+
+    <!-- Git-style Social Links -->
+    <section class="mb-12">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-3xl font-semibold text-stone-800 dark:text-white">
+          <span class="text-green-600 dark:text-green-400">//</span> Connect
+        </h2>
+        <span class="text-stone-500 dark:text-gray-400 font-mono text-sm">
+          git remote -v
+        </span>
+      </div>
+      
+      <div class="grid gap-4">
+        <!-- GitHub -->
+        <a 
+          href="https://github.com/abhisht51" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="group bg-stone-100 dark:bg-gray-800 rounded-lg p-4 hover:bg-stone-200 dark:hover:bg-gray-700 transition-all duration-300 border border-stone-200 dark:border-gray-700 hover:shadow-md hover:-translate-y-1"
+        >
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">origin</span>
+              <svg class="w-5 h-5 text-stone-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span class="font-medium text-stone-800 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300">
+                github.com/abhisht51
+              </span>
+            </div>
+            <span class="text-green-600 dark:text-green-400 font-mono text-sm">
+              (fetch)
+            </span>
+          </div>
+        </a>
+
+        <!-- LinkedIn -->
+        <a 
+          href="https://www.linkedin.com/in/abhisht/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="group bg-stone-100 dark:bg-gray-800 rounded-lg p-4 hover:bg-stone-200 dark:hover:bg-gray-700 transition-all duration-300 border border-stone-200 dark:border-gray-700 hover:shadow-md hover:-translate-y-1"
+        >
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">linkedin</span>
+              <svg class="w-5 h-5 text-stone-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              <span class="font-medium text-stone-800 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300">
+                linkedin.com/in/abhisht
+              </span>
+            </div>
+            <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">
+              (push)
+            </span>
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a 
+          href="mailto:abhisht51@gmail.com"
+          class="group bg-stone-100 dark:bg-gray-800 rounded-lg p-4 hover:bg-stone-200 dark:hover:bg-gray-700 transition-all duration-300 border border-stone-200 dark:border-gray-700 hover:shadow-md hover:-translate-y-1"
+        >
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">email</span>
+              <svg class="w-5 h-5 text-stone-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span class="font-medium text-stone-800 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300">
+                abhisht51@gmail.com
+              </span>
+            </div>
+            <span class="text-purple-600 dark:text-purple-400 font-mono text-sm">
+              (mail)
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Code-style About Section -->
+    <section class="mb-12">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-3xl font-semibold text-stone-800 dark:text-white">
+          <span class="text-green-600 dark:text-green-400">//</span> About
+        </h2>
+        <span class="text-stone-500 dark:text-gray-400 font-mono text-sm">
+          cat README.md
+        </span>
+      </div>
+
+      <div class="bg-stone-100 dark:bg-gray-800 rounded-lg p-6 border border-stone-200 dark:border-gray-700">
+        <div class="font-mono text-sm mb-4">
+          <span class="text-blue-600 dark:text-blue-400">const</span> 
+          <span class="text-stone-800 dark:text-white"> developer</span> 
+          <span class="text-purple-600 dark:text-purple-400"> = </span>
+          <span class="text-stone-800 dark:text-white">{</span>
+        </div>
+        
+        <div class="pl-4 font-mono text-sm space-y-1 mb-4">
+          <div>
+            <span class="text-red-600 dark:text-red-400">name</span>
+            <span class="text-stone-600 dark:text-gray-300">:</span>
+            <span class="text-green-600 dark:text-green-400"> "Abhisht Singh"</span>
+            <span class="text-stone-600 dark:text-gray-300">,</span>
+          </div>
+          <div>
+            <span class="text-red-600 dark:text-red-400">role</span>
+            <span class="text-stone-600 dark:text-gray-300">:</span>
+            <span class="text-green-600 dark:text-green-400"> "Software Engineer"</span>
+            <span class="text-stone-600 dark:text-gray-300">,</span>
+          </div>
+          <div>
+            <span class="text-red-600 dark:text-red-400">passions</span>
+            <span class="text-stone-600 dark:text-gray-300">: [</span>
+            <span class="text-green-600 dark:text-green-400">"AI"</span>
+            <span class="text-stone-600 dark:text-gray-300">,</span>
+            <span class="text-green-600 dark:text-green-400"> "Machine Learning"</span>
+            <span class="text-stone-600 dark:text-gray-300">,</span>
+            <span class="text-green-600 dark:text-green-400"> "Web Development"</span>
+            <span class="text-stone-600 dark:text-gray-300">],</span>
+          </div>
+          <div>
+            <span class="text-red-600 dark:text-red-400">currentFocus</span>
+            <span class="text-stone-600 dark:text-gray-300">:</span>
+            <span class="text-green-600 dark:text-green-400"> "AI-assisted coding tools"</span>
+            <span class="text-stone-600 dark:text-gray-300">,</span>
+          </div>
+          <div>
+            <span class="text-red-600 dark:text-red-400">blog</span>
+            <span class="text-stone-600 dark:text-gray-300">:</span>
+            <span class="text-green-600 dark:text-green-400"> "Sharing experiences and insights"</span>
+          </div>
+        </div>
+        
+        <div class="font-mono text-sm">
+          <span class="text-stone-800 dark:text-white">};</span>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-stone-200 dark:border-gray-700">
+          <div class="prose prose-lg prose-stone dark:prose-invert max-w-none">
+            <p class="text-lg text-stone-600 dark:text-gray-200 leading-relaxed mb-4">
+              I'm a software engineer who's fascinated by the intersection of AI and development. 
+              My journey has taken me through various domains—from building web applications to 
+              exploring the capabilities of AI-assisted coding tools like Claude.
+            </p>
+            
+            <p class="text-lg text-stone-600 dark:text-gray-200 leading-relaxed">
+              Through this blog, I document my experiences, share insights about emerging technologies, 
+              and explore how AI is reshaping the way we build software. I believe in continuous 
+              learning and the power of community knowledge sharing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Console Log CTA -->
+    <div class="bg-stone-100 dark:bg-gray-800 rounded-lg p-8 text-center border border-stone-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+      <h2 class="text-3xl font-semibold mb-4 text-stone-800 dark:text-white">
+        <span class="text-purple-600 dark:text-purple-400">console.log</span>
+        <span class="text-stone-600 dark:text-gray-200">("Let's connect!");</span>
+      </h2>
+      <p class="text-lg text-stone-600 dark:text-gray-200 mb-6 italic">
+        Always interested in discussing new technologies, collaborating on projects, 
+        or just chatting about the future of software development.
+      </p>
+      <a 
+        href="/blog" 
+        class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors font-mono mr-4"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        view all posts →
+      </a>
+    </div>
+  </div>
+</BaseLayout>
