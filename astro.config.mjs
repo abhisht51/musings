@@ -6,7 +6,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://abhisht-musings.netlify.app',
   integrations: [mdx(), tailwind()],
-  output: 'server',
-  adapter: netlify()
+  // Removed output: 'server' - static generation is much faster for blogs
+  // Removed adapter: netlify() - not needed for static sites
 });

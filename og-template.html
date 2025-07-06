@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Template</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 1200px;
+            height: 630px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px;
+            box-sizing: border-box;
+        }
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #60a5fa;
+        }
+        .title {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .subtitle {
+            font-size: 24px;
+            color: #e2e8f0;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        .terminal {
+            background: #1e293b;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .prompt {
+            color: #60a5fa;
+        }
+        .command {
+            color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">~/musings</div>
+        <div class="title">Abhisht's Musings</div>
+        <div class="subtitle">Coding thoughts, AI insights, and developer musings</div>
+        <div class="terminal">
+            <span class="prompt">$</span> <span class="command">cat thoughts.md | share</span>
+        </div>
+    </div>
+</body>
+</html>

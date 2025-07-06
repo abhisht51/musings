@@ -2,9 +2,14 @@
 export interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description = "My personal coding musings and thoughts" } = Astro.props;
+const { title, description = "My personal coding musings and thoughts", image } = Astro.props;
+
+// Default OG image if none provided
+const ogImage = image || "/images/og-default.png";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -14,9 +19,30 @@ const { title, description = "My personal coding musings and thoughts" } = Astro
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Abhisht's Musings" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="twitter:creator" content="@abhisht51" />
+    
+    <!-- Optimized font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
   <body class="h-full bg-stone-50 dark:bg-gray-900 text-stone-800 dark:text-white transition-colors duration-200">
@@ -76,8 +102,6 @@ const { title, description = "My personal coding musings and thoughts" } = Astro
     <script>
       // Dark mode toggle functionality
       const themeToggle = document.getElementById('theme-toggle');
-      const sunIcon = document.getElementById('sun-icon');
-      const moonIcon = document.getElementById('moon-icon');
       
       // Check for saved theme preference or default to system preference
       const getTheme = ():string => {

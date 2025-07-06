@@ -22,7 +22,7 @@ const { post } = Astro.props;
 const { Content } = await post?.render() || { Content: () => null };
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={post.data.title} description={post.data.description} image={post.data.heroImage}>
   <article class="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
     <!-- Back Navigation -->
     <div class="mb-6 sm:mb-8">
@@ -41,6 +41,8 @@ const { Content } = await post?.render() || { Content: () => null };
           <img 
             src={post.data.heroImage} 
             alt={post.data.title}
+            loading="eager"
+            decoding="async"
             class="w-full object-contain max-h-64 sm:max-h-96"
           />
         </div>

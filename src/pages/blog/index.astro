@@ -76,6 +76,8 @@ const uniqueTags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
                   <img 
                     src={post.data.heroImage} 
                     alt={post.data.title}
+                    loading="lazy"
+                    decoding="async"
                     class="w-full object-contain max-h-48 group-hover:scale-105 transition-transform duration-200"
                   />
                 </div>
