@@ -1,8 +1,8 @@
 ---
 title: "Building This Blog with Astro - A Developer's Journey"
 description: "My experience building a personal blog with Astro, including the wins, challenges, and lessons learned along the way."
-publishDate: 2024-01-20T00:00:00Z
-updatedDate: 2024-01-22T00:00:00Z
+publishDate: 2025-06-31T00:00:00Z
+updatedDate: 2025-06-31T00:00:00Z
 tags: ["astro", "web-development", "static-sites", "performance"]
 draft: false
 heroImage: "/images/astro-blog-hero.jpg"
