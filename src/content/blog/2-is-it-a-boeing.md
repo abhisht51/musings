@@ -1,6 +1,6 @@
 ---
 title: "Building isItABoeing?"
-description: "A web application which tells user if they are traveling on a Boeing (for now)"
+description: "A web application that tells users if they're traveling on a Boeing aircraft (for now)"
 publishDate: 2025-07-20T00:00:00Z
 updatedDate: 2025-07-20T00:00:00Z
 tags: ["Projects", "Vibe Coding"]
@@ -10,49 +10,51 @@ heroImage: "/images/is-it-a-boeing.png"
 
 # Introduction
 
-The recent horrific airlines accidents have been quite concerning for me personally. I have looked a lot into the root cause analysis. Perhaps I'm biased but I have concluded that airlines might not be primary culprit for accidents. The accidents could also be a case of Manufacturer's Defect which has been in the news for the last few years. 
+The recent horrific airline accidents have been quite concerning for me personally. I've looked extensively into the root cause analysis. Perhaps I'm biased, but I've concluded that airlines might not be the primary culprit for these accidents. The incidents could also be a case of manufacturer defects, which have been in the news for the past few years. 
 
-While booking flights recently, I just had the idea of checking if the flight I'll be flying on would be a Boeing or Airbus. This birthed the idea of **isItABoeing?** -- An application which answers which flight I'm flying on and if it's a Boeing or not. 
+While booking flights recently, I had the idea of checking whether the flight I'd be taking would be a Boeing or Airbus. This gave birth to **isItABoeing?** — an application that tells you what aircraft you're flying on and whether it's a Boeing or not. 
 
 
 ## Why build it? 
 
-I am confident that this information can be fetched looked up on other websites which would probably also be more informational about the flight the user looks up info for. But I still wanted to build it. Why? Simple 3 reasons 
+I'm confident that this information can be found on other websites and it would probably be more comprehensive as well. But I still wanted to build it. Why? Three simple reasons: 
 
-1. I wanted to have a simple website which does just one thing but does it well. Specifically tell user's reliably what aircraft they'll be flying on? 
-2. I wanted to hone my new found "skill" of vibe-coding. I wanted to test the capabilities of these coding tools more. Could they build an application like these with simple prompting ? or did I have to do keep on prompting because it couldn't do it right they first time? 
-3. Honestly, I had free time in hand and I really got motivated about this :) 
+1. I wanted to create a simple website that does just one thing but does it well — specifically, tell users reliably what aircraft they'll be flying on.
+2. I wanted to hone my newfound "skill" of vibe-coding. I wanted to test the capabilities of these AI coding tools further. Could they build an application like this with simple prompting, or would I have to keep prompting because they couldn't get it right the first time?
+3. Honestly, I had free time and really got motivated about this project! :) 
 
 
 ## Was it challenging? 
 
-Initially when I conceived the idea, I thought there would be APIs I could leverage and simply give the users the answers very quickly. But to my surprise, there weren't many good APIs that were free. There were free rate-limited APIs with limited and at times un-reliable data. 
+Initially, when I conceived the idea, I thought there would be APIs I could leverage to simply give users answers very quickly. But to my surprise, there weren't many good free APIs available. The free APIs that existed were rate-limited and often had unreliable data. 
 
-This made me decide that I should perhaps scrape some famous flight information website. But in my experience with web-scraping I have learned two things. 
-- It's rather slow for real time scenario 
-- It's harder to manage if the website changes it's UI or layout
+This made me consider scraping some well-known flight information websites. But from my experience with web scraping, I've learned two things:
+- It's rather slow for real-time scenarios
+- It's harder to manage when the website changes its UI or layout
 
-So to tackle the above, I decided to do things differently. I observed few things about airlines and flight world such as 
+To tackle these issues, I decided to do things differently. I observed a few things about airlines and the flight industry: 
 
-- There are a finite number of active flights in this world at this time. 
-- New flights are not added very often but perhaps that data could be update once per month or something. 
-- Currently, I can roll out the first version with just few airlines and expand overtime based on usage onboard other airlines. 
+- There are a finite number of active flights in the world at any given time
+- New flights aren't added very often — the data could probably be updated once per month
+- I could roll out the first version with just a few airlines and expand over time based on usage, onboarding other airlines gradually 
 
-I then focussed on making LLM write a script where it would scrape all the major airlines of India and America. Then get all the flight numbers of these airlines and then look up all those flight's aircraft's information. Having done that, the script would add that information to a local directory JSON for fast lookup during search query. 
+I then focused on having an LLM write a script that would scrape all the major airlines of India and America, get all their flight numbers, and then look up each flight's aircraft information. The script would then add that information to a local JSON file for fast lookup during search queries. 
 
-This way, I ended up building my own database and overtime this could get bigger and remove inconsistencies. I have "control" over the datapoints. This problem statement for me was the most challenging. It required me to understand airline industry a bit and also design system in a way which although has a tradeoff of eventual consistency, opens up avenues for lot of customisation for me in the long run. I was quite happy with it! 
+This way, I ended up building my own database that could grow over time and remove inconsistencies. I now had "control" over the data points. This problem was the most challenging for me. It required understanding the airline industry somewhat and designing a system that, while having a tradeoff of eventual consistency, opens up avenues for extensive customization in the long run. I was quite happy with this approach! 
 
-Post this activity of building my own accurate database, I just simply vibe-coding the UI layer with famous UI frameworks and a feedback and tracking system using **Supabase** and **PostHog**
+After building my own accurate database, I simply vibe-coded the UI layer using popular UI frameworks and implemented a feedback and tracking system using **Supabase** and **PostHog** respectively.
 
 
 ## The outcome
 
-All in all it took me about 4-5 hours to build, enhance the UI and deploy on vercel. That might seem like a lot specially with vibe-coding but the first draft version of it was built in under 2 hours. I just took more time to refine the product until my brain was satisfied. 
+All in all, it took me about 4-5 hours to build, enhance the UI, and deploy on Vercel. That might seem like a lot, especially with vibe-coding, but the first draft was built in under 2 hours. I just took more time to refine the product until I was satisfied with it. 
 
-You can check it out here -- [isitaboeing?](https://isitaboeing.vercel.app/) 
+You can check it out here -- [isitaboeing?](https://isitaboeing.vercel.app/)
+
+This experience motivates me to build more things in my free time and I'm constantly trying to look for ideas. So personally, I'd call it a big success. 
 
 Thanks.
 
 ---
 
-*I will try to read more and share everything I learn through this blog more! Keep a watch for more updates on my LinkedIn*
+*I'll try to read more and share everything I learn through this blog! Keep an eye out for more updates on my LinkedIn.*
